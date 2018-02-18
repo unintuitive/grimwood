@@ -1,0 +1,19 @@
+<div class="row centered">
+  <div class="col col-6">
+    <h3>Admin Login</h3>
+    <form class="form" method="POST" action="/admin/login">
+        <input name="csrf_token" type="hidden" value="<%= csrf_token %>" />
+      <div class="form-item">
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="Email">
+      </div>
+      <div class="form-item">
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Password">
+      </div>
+      <div class="form-item">
+        <button class="button primary" type="submit">Log In</button>
+      </div>
+    </form>
+  </div>
+</div>

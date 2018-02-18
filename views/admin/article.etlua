@@ -1,0 +1,30 @@
+<div class="row centered">
+  <div class="col col-12">
+    <% if article then %>
+      <h3>Article: <%= article.id %></h3>
+      <form class="form" action="/admin/article/<%= article.id %>" method="POST">
+        <div class="form-item">
+          <label>Title: </label>
+          <input placeholder="Article title" type="text" name="title" value="<%= article.title %>">
+        </div>
+        <% if article.slug ~= nil then %>
+          <div class="form-item">
+            <label>Slug: </label>
+            <input placeholder="Title slug is auto-generated!" type="text" name="slug" value="<%= article.slug %>">
+          </div>
+        <% end %>
+        <div class="form-item">
+          <label>Date Published:</label>
+          <input type="text" name="date" value="<%= article.date %>">
+        </div>
+        <div class="form-item">
+          <label>Content:</label>
+          <textarea placeholder="Brilliance goes here..." rows="20" name="content"><%= article.content %></textarea>
+        </div>
+        <div class="form-item">
+          <button class="button primary" type="submit">Save</button>
+        </div>
+      </form>
+    <% end %>
+  </div>
+</div>

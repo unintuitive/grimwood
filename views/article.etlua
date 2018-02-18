@@ -1,0 +1,3 @@
+<h2 class="text-centered"><%= article.title %></h2>
+<h3 class="subheading muted text-centered"><%= article.date %></h3>
+<p><%- article.content %></p>

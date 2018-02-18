@@ -1,0 +1,8 @@
+<h3>Articles</h3>
+<% for i, article in pairs(articles) do %>
+  <h4>
+    <a href="/article/<%= article.slug %>">
+      <%= article.title %>
+    </a>
+  </h4>
+<% end %>

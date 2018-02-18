@@ -1,0 +1,25 @@
+<p class="text-center"><a href="admin/article/create">Create New Article</a></p>
+<h3 class="c-heading c-heading--medium">Article Index</h3>
+
+<% if articles then %>
+  <table>
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Excerpt</th>
+      <th>Date Published</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    </tbody>
+    <% for i, article in pairs(articles) do %>
+    <tr>
+      <td><a href="/article/<%= article.slug %>"><%= article.title %></a></td>
+      <td><%= string.sub(article.content, 0,50) %>...</td>
+      <td><%= article.date %></td>
+      <td><a href="/admin/article/<%= article.id %>">Edit</a>&nbsp;&nbsp;&nbsp;<a href="/admin/article/<%= article.id %>/delete">Delete</a></td>
+    </tr>
+    </tbody>
+    <% end %>
+  </table>
+<% end %>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= page_title or "My Page" %></title>
+    <link rel="stylesheet" href="/static/css/kube.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body class="page-kube">
+    <div class="row centered">
+      <div class="col col-8">
+        <div style="margin-top:30px;" class="centered text-center">
+          <h1 class="title"><a style="color:inherit;text-decoration:inherit;" href="/">Blog Title</a></h1>
+          <h3 class="subheading muted">Blog Subhead</h3>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="row centered">
+      <div class="col col-8">
+        <% if errors then %>
+          <div class="alert error">
+            <% for i, error in pairs(errors) do %>
+              <%= error %>
+            <% end %>
+          </div>
+        <% end %>
+        <% content_for("inner") %>
+      </div>
+    </div>
+    <div class="row centered">
+      <div class="col col-8 text-centered">
+        <br>
+        <button data-component="modal" data-target="#contact-modal" class="button small primary outline">Contact</button>
+      </div>
+    </div>
+    <div class="row centered">
+      <div class="col col-8">
+        <br>
+        <p class="text-center small muted">&copy; 2016 <a href="/">Eric C. Mead</a></p>
+      </div>
+    </div>
+    <div id="contact-modal" class="modal-box hide">
+      <div class="modal">
+        <span class="close"></span>
+        <div class="modal-header">Send me a message!</div>
+        <div class="modal-body">
+          <form class="form" method="POST" action="#">
+              <input name="csrf_token" type="hidden" value="<%= csrf_token %>" />
+            <div class="form-item">
+              <label>Your Email<span class="req">*</span></label>
+              <input type="email" name="email" placeholder="Email address">
+            </div>
+            <div class="form-item">
+              <label>Message<span class="req">*</span></label>
+              <textarea placeholder="Your message" rows="6" name="message"></textarea>
+              <div class="desc">Questions? Comments? Vitriol?</div>
+            </div>
+            <div class="form-item">
+              <button class="button primary" type="submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/static/js/kube.js"></script>
+  </body>
+</html>
